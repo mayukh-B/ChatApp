@@ -18,4 +18,8 @@ var io = socket(server);
 
 io.on("connection", function (socket) {
   console.log("connection made");
+
+  socket.on("chat-msg", function (data) {
+    io.emit("chat-msg", data);
+  });
 });
